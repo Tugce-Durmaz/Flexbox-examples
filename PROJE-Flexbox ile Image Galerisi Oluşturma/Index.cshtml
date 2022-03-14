@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+
+    <style>
+        *{
+
+            box-sizing:border-box;
+        }
+        body{
+            margin:0;
+
+        }
+
+        .header{
+            text-align:center;
+            padding:40px;
+
+        }
+        .row{
+            display: flex; @* flex ile divler içindeki tüm fotoğrafları yan yana sığdırmaya çalıştı. *@
+            flex-wrap:wrap;@* fotoğrafları tek satıra sığdırmaya çalışmayı bırakıp alt satıra geçirmesini sağlıyor.*@
+            @* colımn'lar flex-ıtem e hitap ediyor. yüzde yirmi beş olmasını istiyorum.*@
+             
+        }
+        .column{
+            flex:25%;
+            max-width:25%;
+            padding: 0 5px;
+
+        }
+       .column img{
+           margin-top: 6px;
+           width:100%; @* bulunduğu divi kapla diyorum fotoğraf kutucuğunun içine sığıyor*@
+           vertical-align:middle;
+       }
+
+
+       @@media(max-width:800px) @* media ile sitemize responsive görüntü sağlıyoruz*@
+       {
+           .column{
+               flex:50%;
+               max-width:100;
+           }
+
+       }
+
+        @@media(max-width:600px) {
+            .column {
+                flex: 100%;
+                max-width:100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1> Flexbox İle Image Gallery</h1>
+        <p> Flexbox 'ın gücünü görelim</p>
+
+    </div>
+
+
+    <div class="row">
+        <div class="column">
+            <img src="~/img/resimler/ağaç.jpg" />
+            <img src="~/img/resimler/beyaz köprü.jpg" />
+            <img src="~/img/resimler/geyik.jpg" />
+            <img src="~/img/resimler/deniz.jpg" />
+        </div>
+
+        <div class="column"> 
+            <img src="~/img/resimler/güneş ışım-nları.jpg" />
+            <img src="~/img/resimler/kahve.jpg" />
+            <img src="~/img/resimler/kuoa kahve.jpg" />
+            <img src="~/img/resimler/kuru ağaç.jpg" />
+        </div>
+        <div class="column">
+            <img src="~/img/resimler/sahil.jpg" />
+            <img src="~/img/resimler/map.jpg" />
+            <img src="~/img/resimler/ot.jpg" />
+            <img src="~/img/resimler/sarı kafa.jpg" />
+        </div>
+       
+        <div class="column">
+            <img src="~/img/resimler/sis.jpg" />
+            <img src="~/img/resimler/tavan.jpg" />
+            <img src="~/img/resimler/stars.jpg" />
+
+        </div>
+    </div>
+
+</body>
+</html>
